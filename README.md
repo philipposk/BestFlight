@@ -5,13 +5,13 @@ The BestFlight app helps users discover the most optimal flight options by combi
 
 Features:
 
-Intelligent fare comparison across airlines and travel sites
+  Intelligent fare comparison across airlines and travel sites
 
-Personalized filters (budget, stops, duration, flexibility)
+  Personalized filters (budget, stops, duration, flexibility)
 
-Trend analysis for price prediction
+  Trend analysis for price prediction
 
-Optional integration with travel planning or notification systems
+  Optional integration with travel planning or notification systems
 
 A simple, efficient tool for finding the best flights — not just the cheapest.
 
