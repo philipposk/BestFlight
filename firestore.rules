@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    match /priceWatches/{id} {
+      allow read, delete: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if signedIn() && resource.data.userId == request.auth.uid
+                     && request.resource.data.userId == request.auth.uid;
+    }
+
+    match /savedSearches/{id} {
+      allow read, write: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+    }
+
+    // Caches are server-write only. Reads OK for anyone (helps client warm).
+    match /routeCache/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /fareTrendCache/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /flightOrders/{id} {
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow write: if false; // server-only
+    }
+  }
+}

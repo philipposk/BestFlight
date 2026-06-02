@@ -1,0 +1,12 @@
+{
+  "name": "BestFlight",
+  "short_name": "BestFlight",
+  "description": "AI-powered flight search",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fb",
+  "theme_color": "#0b5fff",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

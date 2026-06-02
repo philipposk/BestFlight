@@ -1,0 +1,24 @@
+{
+  "name": "bestflight",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "vercel-dev": "vercel dev"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@vercel/node": "^3.2.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.4.19"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "firebase": "^12.7.0",
+    "firebase-admin": "^13.6.0"
+  }
+}
