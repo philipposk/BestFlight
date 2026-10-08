@@ -14,6 +14,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/google2d416f47472822c8.html", "destination": "/google2d416f47472822c8.html" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
