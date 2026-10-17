@@ -61,7 +61,7 @@ async function get<T>(path: string): Promise<T> {
 
 export const api = {
   searchFlights: (params: SearchParams) =>
-    post<{ offers: NormalizedOffer[]; sources: string[] }>("/api/search-flights", params),
+    post<{ offers: NormalizedOffer[]; sources?: string[]; missing?: string[]; message?: string }>("/api/search-flights", params),
 
   createFlightOrder: (offerId: string, passengers: unknown[]) =>
     post<{ id: string; booking_reference: string }>("/api/create-flight-order", { offerId, passengers }, true),

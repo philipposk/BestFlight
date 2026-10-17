@@ -104,7 +104,12 @@ async function runSearch(
   addons.innerHTML = "";
 
   try {
-    let offers = await searchFlights(params);
+    const searched = await searchFlights(params);
+    if (searched.message && searched.offers.length === 0) {
+      status.textContent = searched.message;
+      return;
+    }
+    let offers = searched.offers;
     if (optOpts.selfTransfer || optOpts.hiddenCity) {
       offers = offers.concat(optimize(offers, params.from, params.to, optOpts));
     }

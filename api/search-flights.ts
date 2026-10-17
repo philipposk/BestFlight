@@ -54,6 +54,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     );
   }
 
+  const missing: string[] = [];
+  if (!process.env.DUFFEL_TOKEN) missing.push("DUFFEL_TOKEN");
+  if (!process.env.AMADEUS_CLIENT_ID) missing.push("AMADEUS_CLIENT_ID");
+  if (!process.env.AMADEUS_CLIENT_SECRET) missing.push("AMADEUS_CLIENT_SECRET");
+  if (!process.env.TRAVELPAYOUTS_TOKEN) missing.push("TRAVELPAYOUTS_TOKEN");
+  if (!process.env.TRAVELPAYOUTS_MARKER) missing.push("TRAVELPAYOUTS_MARKER");
+
   if (process.env.TRAVELPAYOUTS_TOKEN && process.env.TRAVELPAYOUTS_MARKER) {
     tasks.push(
       searchTravelpayoutsFlights(
@@ -68,10 +75,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     );
   }
 
+  if (tasks.length === 0) {
+    res.status(200).json({
+      offers: [],
+      missing,
+      message: `Search is not configured. Missing ${missing.join(", ")}.`,
+    });
+    return;
+  }
+
   try {
     const results = await Promise.all(tasks);
     const all = results.flat();
-    res.status(200).json({ offers: all, sources: results.map((r, i) => ["duffel", "amadeus", "travelpayouts"][i]).filter(Boolean) });
+    res.status(200).json({
+      offers: all,
+      missing,
+      message: all.length === 0 ? "No flights found for that route and date." : undefined,
+    });
   } catch (e) {
     serverError(res, e);
   }

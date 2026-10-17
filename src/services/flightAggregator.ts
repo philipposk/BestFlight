@@ -15,14 +15,14 @@ function key(p: SearchParams): string {
   return JSON.stringify(p);
 }
 
-export async function searchFlights(params: SearchParams): Promise<NormalizedOffer[]> {
+export async function searchFlights(params: SearchParams): Promise<{ offers: NormalizedOffer[]; message?: string }> {
   const k = key(params);
   const hit = cache.get(k);
-  if (hit && Date.now() - hit.ts < CACHE_TTL_MS) return hit.offers;
+  if (hit && Date.now() - hit.ts < CACHE_TTL_MS) return { offers: hit.offers };
   const res = await api.searchFlights(params);
-  const offers = dedupe(res.offers);
-  cache.set(k, { offers, ts: Date.now() });
-  return offers;
+  const offers = dedupe(res.offers || []);
+  if (offers.length > 0) cache.set(k, { offers, ts: Date.now() });
+  return { offers, message: res.message };
 }
 
 function dedupe(offers: NormalizedOffer[]): NormalizedOffer[] {
