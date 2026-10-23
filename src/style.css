@@ -54,6 +54,7 @@ main { max-width: 980px; margin: 0 auto; padding: 24px; }
 .priorities label { flex-direction: row; align-items: center; gap: 8px; }
 .priorities input[type="range"] { flex: 1; }
 .advanced label { flex-direction: row; align-items: center; gap: 8px; margin-right: 16px; }
+.advanced input[type="checkbox"] { width: 24px; height: 24px; margin: 0; accent-color: var(--primary); }
 
 .btn { padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-size: .95rem; font-weight: 500; text-decoration: none; display: inline-block; }
 .btn-primary { background: var(--primary); color: white; }
