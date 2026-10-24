@@ -2,7 +2,7 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, badRequest, serverError } from "./_helpers";
-import { searchAmadeusLocations } from "./lib/amadeus";
+import { searchAmadeusLocations } from "./_lib/amadeus";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;

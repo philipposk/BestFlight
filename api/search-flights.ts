@@ -2,15 +2,15 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest, serverError } from "./_helpers";
-import { searchDuffelFlights, type DuffelCabin } from "./lib/duffel";
-import { searchAmadeusFlights } from "./lib/amadeus";
-import { searchTravelpayoutsFlights, buildAviasalesAffiliateUrl } from "./lib/travelpayouts";
+import { searchDuffelFlights, type DuffelCabin } from "./_lib/duffel";
+import { searchAmadeusFlights } from "./_lib/amadeus";
+import { searchTravelpayoutsFlights, buildAviasalesAffiliateUrl } from "./_lib/travelpayouts";
 import {
   type NormalizedOffer,
   type NormalizedSegment,
   parseIsoDuration,
   minutesBetween,
-} from "./lib/normalize";
+} from "./_lib/normalize";
 
 export const config = { maxDuration: 30 };
 

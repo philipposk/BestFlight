@@ -2,15 +2,15 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, serverError } from "../_helpers";
-import { db, fcm } from "../lib/firestoreAdmin";
-import { searchTravelpayoutsFlights } from "../lib/travelpayouts";
-import { searchDuffelFlights } from "../lib/duffel";
+import { db, fcm } from "../_lib/firestoreAdmin";
+import { searchTravelpayoutsFlights } from "../_lib/travelpayouts";
+import { searchDuffelFlights } from "../_lib/duffel";
 import {
   evaluatePriceCheck,
   buildAlertPayload,
   type PriceWatch,
   type PriceCheckResult,
-} from "../lib/priceWatch";
+} from "../_lib/priceWatch";
 
 export const config = { maxDuration: 60 };
 

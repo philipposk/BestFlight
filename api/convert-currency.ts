@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest, serverError } from "./_helpers";
-import { fxRate } from "./lib/climatiq";
+import { fxRate } from "./_lib/climatiq";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;

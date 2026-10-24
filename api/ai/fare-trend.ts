@@ -2,9 +2,9 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { travelpayoutsPriceCalendar } from "../lib/travelpayouts";
-import { geminiJSON } from "../lib/gemini";
-import { db } from "../lib/firestoreAdmin";
+import { travelpayoutsPriceCalendar } from "../_lib/travelpayouts";
+import { geminiJSON } from "../_lib/gemini";
+import { db } from "../_lib/firestoreAdmin";
 
 interface Body {
   from: string;
