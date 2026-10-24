@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { db, verifyIdToken } from "../_lib/firestoreAdmin";
-import type { PriceWatch } from "../_lib/priceWatch";
+import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers.js";
+import { db, verifyIdToken } from "../_lib/firestoreAdmin.js";
+import type { PriceWatch } from "../_lib/priceWatch.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;

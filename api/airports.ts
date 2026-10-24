@@ -1,8 +1,8 @@
 // Airport / city autocomplete via Amadeus locations.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, badRequest, serverError } from "./_helpers";
-import { searchAmadeusLocations } from "./_lib/amadeus";
+import { handleOptions, badRequest, serverError } from "./_helpers.js";
+import { searchAmadeusLocations } from "./_lib/amadeus.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;

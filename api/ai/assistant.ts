@@ -1,8 +1,8 @@
 // Flight-focused chat assistant.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { geminiModel } from "../_lib/gemini";
+import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers.js";
+import { geminiModel } from "../_lib/gemini.js";
 
 interface Body {
   messages: Array<{ role: "user" | "assistant"; content: string }>;

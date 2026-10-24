@@ -1,16 +1,16 @@
 // Cron — runs hourly. Re-prices every active watch, records history, fires FCM on drop.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, serverError } from "../_helpers";
-import { db, fcm } from "../_lib/firestoreAdmin";
-import { searchTravelpayoutsFlights } from "../_lib/travelpayouts";
-import { searchDuffelFlights } from "../_lib/duffel";
+import { handleOptions, serverError } from "../_helpers.js";
+import { db, fcm } from "../_lib/firestoreAdmin.js";
+import { searchTravelpayoutsFlights } from "../_lib/travelpayouts.js";
+import { searchDuffelFlights } from "../_lib/duffel.js";
 import {
   evaluatePriceCheck,
   buildAlertPayload,
   type PriceWatch,
   type PriceCheckResult,
-} from "../_lib/priceWatch";
+} from "../_lib/priceWatch.js";
 
 export const config = { maxDuration: 60 };
 

@@ -1,8 +1,8 @@
 // Returns a Travelpayouts/Hotellook affiliate URL — no in-app hotel search UI.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest } from "./_helpers";
-import { buildHotellookAffiliateUrl } from "./_lib/travelpayouts";
+import { handleOptions, requireMethod, badRequest } from "./_helpers.js";
+import { buildHotellookAffiliateUrl } from "./_lib/travelpayouts.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;
