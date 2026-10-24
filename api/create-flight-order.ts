@@ -2,8 +2,8 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest, serverError } from "./_helpers";
-import { createDuffelOrder } from "./lib/duffel";
-import { db, verifyIdToken } from "./lib/firestoreAdmin";
+import { createDuffelOrder } from "./_lib/duffel";
+import { db, verifyIdToken } from "./_lib/firestoreAdmin";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;

@@ -2,7 +2,7 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { geminiJSON } from "../lib/gemini";
+import { geminiJSON } from "../_lib/gemini";
 
 interface Body {
   offers: Array<{

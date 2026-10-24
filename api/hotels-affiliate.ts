@@ -2,7 +2,7 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleOptions, requireMethod, badRequest } from "./_helpers";
-import { buildHotellookAffiliateUrl } from "./lib/travelpayouts";
+import { buildHotellookAffiliateUrl } from "./_lib/travelpayouts";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (handleOptions(req, res)) return;
