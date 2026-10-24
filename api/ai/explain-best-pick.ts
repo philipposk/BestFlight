@@ -1,8 +1,8 @@
 // Gemini analyses the top N offers + user priorities → picks best with reasoning.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { geminiJSON } from "../_lib/gemini";
+import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers.js";
+import { geminiJSON } from "../_lib/gemini.js";
 
 interface Body {
   offers: Array<{

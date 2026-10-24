@@ -1,16 +1,16 @@
 // Parallel flight search: Duffel + Amadeus + Travelpayouts → normalized offers.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest, serverError } from "./_helpers";
-import { searchDuffelFlights, type DuffelCabin } from "./_lib/duffel";
-import { searchAmadeusFlights } from "./_lib/amadeus";
-import { searchTravelpayoutsFlights, buildAviasalesAffiliateUrl } from "./_lib/travelpayouts";
+import { handleOptions, requireMethod, badRequest, serverError } from "./_helpers.js";
+import { searchDuffelFlights, type DuffelCabin } from "./_lib/duffel.js";
+import { searchAmadeusFlights } from "./_lib/amadeus.js";
+import { searchTravelpayoutsFlights, buildAviasalesAffiliateUrl } from "./_lib/travelpayouts.js";
 import {
   type NormalizedOffer,
   type NormalizedSegment,
   parseIsoDuration,
   minutesBetween,
-} from "./_lib/normalize";
+} from "./_lib/normalize.js";
 
 export const config = { maxDuration: 30 };
 

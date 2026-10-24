@@ -1,10 +1,10 @@
 // Fare-trend prediction: Travelpayouts historical prices + Gemini → buy / wait.
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers";
-import { travelpayoutsPriceCalendar } from "../_lib/travelpayouts";
-import { geminiJSON } from "../_lib/gemini";
-import { db } from "../_lib/firestoreAdmin";
+import { handleOptions, requireMethod, badRequest, serverError } from "../_helpers.js";
+import { travelpayoutsPriceCalendar } from "../_lib/travelpayouts.js";
+import { geminiJSON } from "../_lib/gemini.js";
+import { db } from "../_lib/firestoreAdmin.js";
 
 interface Body {
   from: string;
