@@ -1,0 +1,15 @@
+# BestFlight
+
+> BestFlight searches several flight sources at once and ranks the results by what matters to you: cheapest, fastest, or lowest carbon. It can also tell you whether a fare is likely to rise or fall, and watch a route for you.
+
+## What it does
+- Searches several flight providers at the same time and combines the results
+- Ranks flights by price, travel time or carbon footprint
+- Finds money-saving connection options, with clear warnings about the risks
+- Predicts whether a price will go up or down and suggests buying now or waiting
+- Watches a route and notifies you when the price drops
+- An AI assistant answers flight questions
+
+## Links
+- [BestFlight](https://bestflight.6x7.gr/)
+- [6x7](https://6x7.gr/), [all 6x7 apps](https://portfolio.6x7.gr/)
